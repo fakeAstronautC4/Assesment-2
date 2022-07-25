@@ -34,7 +34,8 @@ const cart = [
 ]
 
 //CODE HERE
-
+let price_sum = cart.reduce((prev_value, curr_value) => prev_value + curr_value.price, 0)
+console.log(price_sum);
 
 // const summedPrice = cart.reduce(/* CALLBACK HERE */)
 
@@ -56,11 +57,14 @@ const cart = [
 
 //CODE HERE
 function calcFinalPrice (cartTotal, couponValue, tax){
-    let final_number = cartTotal + tax - couponValue;
-     console.log(Math.floor(final_number))
+    console.log('Subtotal: '+ cartTotal + ' \nTax rate: '+ tax +'%' + ' \nCoupon Discount: '+ couponValue)
+    let taxed_amount = cartTotal * (tax / 100);
+    console.log('Total taxed: ' + taxed_amount)
+    let final_number = cartTotal + taxed_amount - couponValue;
+     console.log('Your total is '+ final_number)
 }
 
-
+calcFinalPrice(200, 25, 6)
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -83,7 +87,11 @@ function calcFinalPrice (cartTotal, couponValue, tax){
 
 /*
     TEXT ANSWER HERE
-
+The restaurant needs from the customer: 
+Table #: Just like deliveries, the staff needs an address, in this case... table number X.
+Drinks: First thing first. As I read the Menu I like to have a drink, besides, its hot outside and I'm sweating.
+Order: What does the customer(s) want. Second most important question right?
+Method of payment: And the most important question... how you gon give me my money?
 */
 
 /*
@@ -92,3 +100,11 @@ function calcFinalPrice (cartTotal, couponValue, tax){
 */
 
 //CODE HERE
+
+let customerOne = {
+    table: 5,
+    Drinks: ['Water', 'Wine', 'Soda'],
+    Order: ['Beef Steak', 'Pork Ribs', 'Chiken Breast'],
+    MethodOfPay: 'Zelle'
+}
+console.log(customerOne)

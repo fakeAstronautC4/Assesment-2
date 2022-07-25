@@ -155,22 +155,24 @@ let food_arr = [
 */
 
 //CODE HERE
-
+/*
 function only_nonvegan (possible_array, tag) {
      for(i = 0; i < possible_array.length; i++){
-         
-            if(possible_array[i]['tags'].includes(tag)){
-            console.log(possible_array[i].name)
-            
-            
-         }
-     }
- }
-console.log(only_nonvegan(food_arr, 'non-vegan'))
+         if(possible_array[i]['tags'].includes(tag)){
+             console.log(possible_array[i].name)
+        }
+    }
+}
+//only_nonvegan(food_arr, 'non-vegan')
+*/
+
+
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
-// let veganFood = food_arr.filter( ( pizzas ) => food_arr.tags.includes("budget"))
-// console.log(food_arr);
+ const veganFood = food_arr.filter(function(foods){
+     return foods['tags'].includes("budget")
+ })
+ console.log(veganFood);
 
 
 //////////////////PROBLEM 5////////////////////
@@ -213,6 +215,18 @@ console.log(only_nonvegan(food_arr, 'non-vegan'))
 */
 
 //CODE HERE
+function filterByProperty(price, number, type){
+    let filtered_arr = []
+        if (type === "above"){
+            filtered_arr = food_arr.filter(foods => foods['price'] > number)
+        }  else if (type === 'below'){
+            filtered_arr = food_arr.filter(foods => foods['price'] < number)
+            } else{
+            return "Enter a valid type"
+            } 
+    return filtered_arr;
+}
+
 
 
 /*
@@ -223,3 +237,5 @@ console.log(only_nonvegan(food_arr, 'non-vegan'))
 */
 
 //CODE HERE
+
+console.log(filterByProperty('price', 31, "below"))
